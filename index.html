@@ -130,6 +130,47 @@ button.on{background:var(--soft);border-color:var(--accent);color:var(--accent);
 #welcome h2{color:var(--ink)}
 .note{font-size:12px;color:var(--mute);padding:0 16px 20px}
 textarea#copyBox{position:fixed;left:-9999px}
+.viewtabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;background:var(--chip);border-radius:12px;padding:4px;margin:12px 16px 0}
+.viewtabs button{height:40px;border:0;border-radius:9px;background:transparent;font-weight:600;color:var(--ink2);font-size:14px}
+.viewtabs button.on{background:var(--panel);color:var(--accent);font-weight:700;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+body[data-view="cards"] #rooms,body[data-view="cards"] #mapPanel,body[data-view="cards"] #tierKey,body[data-view="cards"] #board{display:none !important}
+body:not([data-view="cards"]) #cardsView{display:none !important}
+#cardsView{display:flex;flex-direction:column;gap:12px}
+.cv-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.cv-title{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.cap{font-size:12px;color:var(--ink2)}
+.seg{display:inline-flex;gap:4px;background:var(--chip);border-radius:10px;padding:4px}
+.seg button{height:36px;padding:0 14px;border:0;border-radius:7px;background:transparent;font-weight:600;color:var(--ink2);font-size:13px}
+.seg button.on{background:var(--accent);color:var(--accent-ink);font-weight:800}
+.cv-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:4px;align-items:flex-start;min-width:0}
+.tile .tl{font-size:11px;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.tile .tv{font-size:22px;font-weight:800;line-height:1.1}.tile .tv small{font-size:12px;color:var(--ink2);font-weight:600}
+.cv-room{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.cv-room .rh{display:flex;justify-content:space-between;align-items:center}
+.cv-room h2{margin:0;font-size:16px;font-weight:800}
+.meter{display:flex;gap:4px}.meter span{flex:1;height:8px;border-radius:4px;background:var(--t2)}.meter span.low{background:var(--warn)}.meter span.open{background:transparent;box-shadow:inset 0 0 0 2px var(--bad)}
+.trk-key{display:flex;gap:4px 12px;font-size:11px;color:var(--ink2);flex-wrap:wrap}.trk-key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.cgrid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:900px){.cgrid2{grid-template-columns:repeat(4,minmax(0,1fr))}#cardsView{max-width:1100px;margin:0 auto;width:100%}}
+.pcard{all:unset;box-sizing:border-box;cursor:pointer;border-radius:12px;border:1px solid var(--line);border-top:4px solid var(--tc);background:var(--bg);padding:10px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.pcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pcard .lab{display:flex;justify-content:space-between;gap:6px;font-size:10px;font-weight:700;color:var(--mute);letter-spacing:.05em}
+.pcard .lab .st{color:var(--accent)}.pcard.low .lab .st{color:var(--warn)}
+.pcard .prow{display:flex;align-items:center;gap:10px;min-width:0}
+.pcard .nmw{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pcard .nm{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink)}
+.rk2{font-size:12px;font-weight:600;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trk{position:relative;height:8px;border-radius:4px;display:block}
+.trk i{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 3px var(--bg)}
+.pcard .foot{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.ttag{font-size:11px;font-weight:700;color:var(--ink2);white-space:nowrap;display:inline-flex;align-items:center;gap:5px}.ttag i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.pcard .rt{font-size:17px;font-weight:800;color:var(--ink)}
+.pcard.empty{border:2px dashed var(--bad);background:var(--bad-soft);cursor:default;justify-content:space-between;min-height:126px}
+.pcard.empty .lab{color:var(--bad)}.pcard.empty .nm{color:var(--bad)}
+.jb{flex:none;border-radius:50%;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+.jb b{font-size:16px;font-weight:800;line-height:1}.jb i{font-style:normal;font-size:8px;font-weight:700;letter-spacing:.06em}
+@media (max-width:700px){.viewtabs{margin:10px 10px 0}.tile .tv{font-size:20px}}
 .ladder{margin:8px 0 4px;display:flex;flex-direction:column;gap:4px}
 .slot{display:grid;grid-template-columns:62px minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:7px 9px;border-radius:8px;background:var(--panel);border-left:4px solid var(--t2);font-size:13px;cursor:pointer}
 .slot.low{border-left-color:var(--warn)} .slot.empty{border-left-color:var(--bad);cursor:default} .slot.opt{border-left-color:var(--line)}
@@ -200,7 +241,9 @@ textarea#copyBox{position:fixed;left:-9999px}
   <h2>A visual depth chart for your Sleeper leagues</h2>
   <p>See how your roster stacks up against a minimum-talent plan: 3 QBs, 8 RB/WR with at least 4 studs, and a starting TE in superflex. Every player gets a rating from production in your league's scoring plus current and future market value. Tap anyone for the full breakdown.</p>
 </div>
+<div class="viewtabs" id="viewTabs" role="tablist" aria-label="Views" hidden><button type="button" role="tab" data-view="depth">Depth chart</button><button type="button" role="tab" data-view="cards">Roster cards</button></div>
 <div class="wrap" id="app" hidden>
+  <section id="cardsView" aria-label="Roster cards"></section>
   <section class="panel" id="rooms" hidden></section>
   <section class="panel" id="mapPanel"></section>
   <div class="tierkey" id="tierKey"></div>
@@ -272,12 +315,12 @@ function todayStr(){ const d = new Date(); return d.getFullYear()+'-'+(d.getMont
 /* ---------- players (cached once per day) ---------- */
 function expandPlayers(data){
   const out = {};
-  for(const id in data){ const a = data[id]; out[id] = {id, name:a[0], pos:a[1], fp:a[2] ? a[2].split(',') : [], team:a[3], age:a[4], exp:a[5], inj:a[6], status:a[7], dcp:a[8], dco:a[9], rank:a[10]}; }
+  for(const id in data){ const a = data[id]; out[id] = {id, name:a[0], pos:a[1], fp:a[2] ? a[2].split(',') : [], team:a[3], age:a[4], exp:a[5], inj:a[6], status:a[7], dcp:a[8], dco:a[9], rank:a[10], num:a[11] ?? ''}; }
   return out;
 }
 async function loadPlayers(force){
   const c = LS.get('dc:players', null);
-  if(!force && c && c.v === 2 && c.date === todayStr()){ S.players = expandPlayers(c.data); S.playersDate = c.date; return; }
+  if(!force && c && c.v === 3 && c.date === todayStr()){ S.players = expandPlayers(c.data); S.playersDate = c.date; return; }
   setStatus('Downloading NFL player list (~5 MB, once a day)…');
   const raw = await getJSON(API + '/players/nfl');
   const data = {};
@@ -286,9 +329,9 @@ async function loadPlayers(force){
     const fp = [...new Set((p.fantasy_positions || []).map(x => POS_MAP[x] || x))];
     const pos = POS_MAP[p.position] || p.position || fp[0];
     if(!pos) continue;
-    data[id] = [p.full_name || [p.first_name, p.last_name].filter(Boolean).join(' ') || id, pos, fp.join(','), p.team || '', p.age ?? '', p.years_exp ?? '', p.injury_status || '', p.status || '', p.depth_chart_position || '', p.depth_chart_order ?? '', p.search_rank ?? 9999999];
+    data[id] = [p.full_name || [p.first_name, p.last_name].filter(Boolean).join(' ') || id, pos, fp.join(','), p.team || '', p.age ?? '', p.years_exp ?? '', p.injury_status || '', p.status || '', p.depth_chart_position || '', p.depth_chart_order ?? '', p.search_rank ?? 9999999, p.number ?? ''];
   }
-  if(!LS.set('dc:players', {v:2, date:todayStr(), data})) console.warn('Player cache did not fit; it will re-download next load.');
+  if(!LS.set('dc:players', {v:3, date:todayStr(), data})) console.warn('Player cache did not fit; it will re-download next load.');
   S.players = expandPlayers(data); S.playersDate = todayStr();
 }
 function P(id){ return S.players[id] || {id, name:(isNaN(id) ? id + ' D/ST' : 'Player ' + id), pos:isNaN(id) ? 'DEF' : '?', fp:isNaN(id) ? ['DEF'] : [], team:isNaN(id) ? id : '', inj:'', rank:9999999}; }
@@ -436,7 +479,8 @@ function buildRanks(){
   const ranks = {}, posN = {};
   const posOf = id => elig(id).find(x => x !== 'DB' || !elig(id).includes('WR')) || P(id).pos;
   for(const g in now) now[g].sort((a,b) => b[1] - a[1]).forEach(([id], i) => { const pos = g === 'RBWR' ? (elig(id).includes('RB') ? 'RB' : 'WR') : posOf(id); posN[pos] = (posN[pos] || 0) + 1; ranks[id] = {g, now:i + 1, pos: pos + posN[pos]}; });
-  for(const g in dyn) dyn[g].sort((a,b) => b[1] - a[1]).forEach(([id], i) => { (ranks[id] = ranks[id] || {g, pos:''}).dyn = i + 1; });
+  const posD = {};
+  for(const g in dyn) dyn[g].sort((a,b) => b[1] - a[1]).forEach(([id], i) => { const pos = g === 'RBWR' ? (elig(id).includes('RB') ? 'RB' : 'WR') : posOf(id); posD[pos] = (posD[pos] || 0) + 1; const r = (ranks[id] = ranks[id] || {g, pos:''}); r.dyn = i + 1; r.dpos = pos + posD[pos]; });
   // threshold values for the roster map quadrant lines
   S.thresh = {};
   for(const g in now){ const b = bar(g); const n = now[g][Math.min(b, now[g].length) - 1]; const d = (dyn[g] || [])[Math.min(b, (dyn[g] || []).length) - 1]; S.thresh[g] = {x: n ? n[1] : 50, yv: d ? d[1] : null}; }
@@ -728,6 +772,100 @@ function openDrawer(id){
 }
 function closeDrawer(){ S.selected = null; $('drawer').classList.remove('open'); $('drawer').setAttribute('aria-hidden', 'true'); document.querySelectorAll('.card.sel').forEach(c => c.classList.remove('sel')); }
 
+/* ---------- roster cards view (slot board + league-rank track + Now/2027) ---------- */
+const TEAM_COLORS = {ARI:'#97233F',ATL:'#A71930',BAL:'#241773',BUF:'#00338D',CAR:'#006A9E',CHI:'#0B162A',CIN:'#B9400F',CLE:'#311D00',DAL:'#041E42',DEN:'#B9400F',DET:'#005A8C',GB:'#203731',HOU:'#03202F',IND:'#002C5F',JAX:'#006778',KC:'#C8102E',LV:'#1F1F1F',LAC:'#005A9C',LAR:'#003594',MIA:'#00727A',MIN:'#4F2683',NE:'#002244',NO:'#101820',NYG:'#0B2265',NYJ:'#125740',PHI:'#004C54',PIT:'#101820',SF:'#AA0000',SEA:'#002244',TB:'#B00808',TEN:'#0C2340',WAS:'#5A1414'};
+function badgeHTML(id, size){
+  const p = P(id); const c = TEAM_COLORS[p.team] || '#6b7280';
+  return '<span class="jb" style="background:' + c + ';width:' + size + 'px;height:' + size + 'px" aria-hidden="true"><b>' + esc(p.num !== '' && p.num != null ? p.num : p.pos) + '</b><i>' + esc(p.team || 'FA') + '</i></span>';
+}
+function posNum(s){ const n = parseInt(String(s || '').replace(/\D/g, ''), 10); return isNaN(n) ? null : n; }
+function studOf(id, kind){
+  const r = S.ranks[id]; if(!r || r.g !== 'RBWR') return false;
+  const n = posNum(kind === 'now' ? r.pos : r.dpos); return !!n && n <= (targets().studBar || 24);
+}
+function tierFromRank(rank, g){ const b = bar(g); return rank <= Math.max(1, Math.round(b / 3)) ? 0 : rank <= b ? 1 : rank <= Math.round(b * 1.5) ? 2 : 3; }
+/** Band cut-offs for the league-rank track: top band = studs (RB/WR) or elite (QB/TE), then the quality bar. */
+function rankCuts(g, kind, posL){
+  const B = bar(g);
+  if(g === 'RBWR' && posL){
+    // RB/WR tracks use position rank, so the stud band (top N at position) matches the star exactly.
+    // Quality cut = deepest position rank still inside the combined RB/WR quality bar.
+    const key = kind + posL; S.cutCache = S.cutCache || {}; if(S.cutCache[key]) return S.cutCache[key];
+    let q = 0;
+    for(const id in S.ranks){ const r = S.ranks[id]; const ps = kind === 'now' ? r.pos : r.dpos; if(r.g === 'RBWR' && r[kind] && r[kind] <= B && ps && ps.startsWith(posL)){ const n = posNum(ps); if(n > q) q = n; } }
+    const top = targets().studBar || 24; q = Math.max(q, top);
+    return (S.cutCache[key] = {top, bar: q, max: Math.round(q * 1.5), label: 'Stud', pos: true});
+  }
+  return {top: Math.max(1, Math.round(B / 3)), bar: B, max: Math.round(B * 1.5), label: 'Elite'};
+}
+function trackBg(c){ const p1 = (100 * c.top / c.max).toFixed(1), p2 = (100 * c.bar / c.max).toFixed(1); return 'linear-gradient(90deg,var(--t1) 0 ' + p1 + '%,var(--t3) ' + p1 + '% ' + p2 + '%,var(--grid) ' + p2 + '% 100%)'; }
+function pcardHTML(id, lab, g, kind, cuts, opt){
+  const r = S.ranks[id] || {}, pos = kind === 'now' ? r.pos : r.dpos;
+  if(g === 'RBWR' && pos) cuts = rankCuts(g, kind, pos.slice(0, 2));
+  const rank = cuts.pos ? posNum(pos) : r[kind], overall = r[kind];
+  const q = isQual(id, g, kind), stud = studOf(id, kind);
+  const t = overall ? tierFromRank(overall, g) : null;
+  const rating = kind === 'now' ? scoreFor(id, 'off', true) : norm(id, 'off', 'dyn');
+  const pct = rank ? (100 * Math.min(rank, cuts.max) / cuts.max).toFixed(1) : null;
+  const gl = g === 'RBWR' ? 'RB/WR' : g;
+  const status = opt ? 'ANY' : q ? '✓ QUALITY' : 'BELOW BAR';
+  const p = P(id); const tx = new Set(S.roster.taxi || []), ir = new Set(S.roster.reserve || []);
+  const flag = tx.has(id) ? 'taxi' : ir.has(id) ? 'IR' : isOut(p) ? (INJ_ABBR[p.inj] || 'out') : '';
+  return '<button type="button" class="pcard' + (q || opt ? '' : ' low') + '" data-id="' + esc(id) + '" style="--tc:' + (t == null ? 'var(--line)' : TIERS[t].c) + '">' +
+    '<span class="lab"><span>' + lab + '</span><span class="st">' + status + '</span></span>' +
+    '<span class="prow">' + badgeHTML(id, 44) + '<span class="nmw"><span class="nm">' + esc(p.name) + '</span><span class="rk2">' + (stud ? '★ ' : '') + esc(pos || p.pos) + (flag ? ' · ' + esc(flag) : '') + '</span></span></span>' +
+    '<span class="trk" style="background:' + trackBg(cuts) + '" role="img" aria-label="' + (rank ? (cuts.pos ? esc(pos) + ' league-wide' : '#' + rank + ' of ' + gl + ' league-wide') : 'unranked') + '">' + (pct != null ? '<i style="left:' + pct + '%"></i>' : '') + '</span>' +
+    '<span class="foot"><span class="ttag"><i style="background:' + (t == null ? 'var(--line)' : TIERS[t].c) + '"></i>' + (t == null ? 'Unrated' : TIERS[t].n) + (overall && !cuts.pos ? ' · #' + overall : '') + '</span><span class="rt">' + (rating == null ? '–' : Math.round(rating)) + '</span></span></button>';
+}
+function emptyCardHTML(lab, g){
+  return '<div class="pcard empty"><span class="lab"><span>' + lab + '</span></span><span class="nm">Open slot</span><span class="rk2">Needs a quality ' + (g === 'RBWR' ? 'RB or WR' : g) + '</span></div>';
+}
+function renderCards(){
+  const el = $('cardsView'); if(!el || !S.roster) return;
+  const t = targets(), kind = S.settings.cardsKind === 'dyn' ? 'dyn' : 'now';
+  const need = {QB: slotCount('QB') + slotCount('SUPER_FLEX'), RBWR: slotCount('RB') + slotCount('WR') + slotCount('FLEX') + slotCount('WRRB_FLEX'), TE: Math.max(1, slotCount('TE'))};
+  const tx = new Set(S.roster.taxi || []), ir = new Set(S.roster.reserve || []);
+  let tiles = '', rooms = '';
+  for(const G of ROOMS){
+    const g = G.key, tgt = t[g], cuts = rankCuts(g, kind);
+    const all = roomPlayers(S.roster, g);
+    const cand = kind === 'now'
+      ? all.filter(id => !tx.has(id) && !ir.has(id) && !isOut(P(id))).sort((a,b) => (scoreFor(b, 'off', true) ?? -1) - (scoreFor(a, 'off', true) ?? -1))
+      : all.filter(id => metrics(id).dyn).sort((a,b) => metrics(b).dyn - metrics(a).dyn);
+    const slots = Math.max(tgt, need[g]); const used = new Set();
+    let cards = '', meter = '', qual = 0, studs = 0;
+    for(let i = 0; i < slots; i++){
+      const id = cand[i], lab = i < need[g] ? 'START ' + (i + 1) : 'DEPTH ' + (i - need[g] + 1);
+      if(id){ used.add(id); const q = isQual(id, g, kind); if(q) qual++; if(studOf(id, kind)) studs++; meter += '<span class="' + (q ? '' : 'low') + '"></span>'; cards += pcardHTML(id, lab, g, kind, cuts, false); }
+      else { meter += '<span class="open"></span>'; cards += emptyCardHTML(lab, g); }
+    }
+    if(g === 'TE'){ const b = cand[slots]; if(b){ used.add(b); cards += pcardHTML(b, 'BACKUP', g, kind, cuts, true); } }
+    const studMin = g === 'RBWR' ? (t.studs || 0) : 0;
+    const tag = qual < tgt ? '<span class="tag short">SHORT ' + (tgt - qual) + '</span>' : studs < studMin ? '<span class="tag short">NEED ' + (studMin - studs) + ' STUD' + (studMin - studs > 1 ? 'S' : '') + '</span>' : '<span class="tag ok">MINIMUM MET</span>';
+    tiles += '<div class="tile"><span class="tl">' + G.label + '</span><span class="tv">' + qual + '<small> / ' + tgt + '</small></span>' + (g === 'RBWR' ? '<span class="rk2">★ ' + studs + ' of ' + studMin + ' studs</span>' : '') + tag + '</div>';
+    const extra = all.filter(id => !used.has(id)).sort((a,b) => kind === 'now' ? (scoreFor(b, 'off', true) ?? -1) - (scoreFor(a, 'off', true) ?? -1) : (metrics(b).dyn || 0) - (metrics(a).dyn || 0));
+    const caption = g === 'QB' ? 'Start ' + need.QB + ' every week (QB + superflex), plus ' + Math.max(0, tgt - need.QB) + ' healthy QB in reserve.'
+      : g === 'RBWR' ? need.RBWR + ' must-start slots plus ' + Math.max(0, tgt - need.RBWR) + ' depth, with at least ' + studMin + ' studs (top ' + (t.studBar || 24) + ' at their position).'
+      : need.TE + ' starter needed; the backup can be anyone.';
+    rooms += '<section class="cv-room"><div class="rh"><h2>' + G.label + '</h2>' + tag + '</div>' +
+      '<div class="meter" role="img" aria-label="' + qual + ' of ' + tgt + ' quality">' + meter + '</div>' +
+      '<div class="cap">' + caption + '</div>' +
+      '<div class="trk-key"><span><i style="background:var(--t1)"></i>' + (g === 'RBWR' ? 'Stud (top ' + (t.studBar || 24) + ' at position)' : cuts.label + ' (top ' + cuts.top + ')') + '</span><span><i style="background:var(--t3)"></i>Quality (top ' + bar(g) + (g === 'RBWR' ? ' RB/WR' : '') + ')</span><span><i style="background:var(--grid)"></i>Below bar</span><span>● = league rank</span></div>' +
+      '<div class="cgrid2">' + cards + '</div>' +
+      (extra.length ? '<div class="bonus"><span>' + (kind === 'now' ? 'Bonus:' : 'Not in your 2027 core:') + '</span>' + extra.map(id => { const p = P(id); const f = tx.has(id) ? ' · taxi' : ir.has(id) ? ' · IR' : isOut(p) ? ' · ' + (INJ_ABBR[p.inj] || 'out') : ''; return '<span class="bchip" data-id="' + esc(id) + '">' + esc(p.name.split(' ').slice(-1)[0]) + (kind === 'now' ? f : '') + '</span>'; }).join('') + '</div>' : '') +
+      '</section>';
+  }
+  el.innerHTML = '<div class="cv-head"><div><div class="cv-title">' + esc(teamName(S.roster)) + '</div><div class="cap">' + (kind === 'now' ? 'This season: best healthy players by current ability. Taxi, IR and Out don\'t count.' : 'Next season: graded on dynasty value. Taxi players count; current injuries don\'t matter.') + '</div></div>' +
+    '<div class="seg" role="tablist" aria-label="Season"><button type="button" role="tab" data-kind="now" aria-selected="' + (kind === 'now') + '" class="' + (kind === 'now' ? 'on' : '') + '">Now</button><button type="button" role="tab" data-kind="dyn" aria-selected="' + (kind === 'dyn') + '" class="' + (kind === 'dyn' ? 'on' : '') + '">' + (Number(S.season) + 1 || 'Next yr') + '</button></div></div>' +
+    '<div class="cv-sum">' + tiles + '</div>' + rooms;
+}
+function applyView(){
+  const v = S.settings.view === 'cards' ? 'cards' : 'depth';
+  document.body.dataset.view = v;
+  document.querySelectorAll('#viewTabs button').forEach(b => { const on = b.dataset.view === v; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
+}
+function setView(v){ S.settings.view = v; saveSettings(); applyView(); try{ if(location.hash !== '#' + v) history.replaceState(null, '', '#' + v); }catch(_){} window.scrollTo(0, 0); }
+
 /* ---------- top-level render ---------- */
 function renderControls(){
   const w = S.settings.weights; const tot = (w.prod + w.now + w.dyn) || 1;
@@ -738,7 +876,8 @@ function renderControls(){
 }
 function render(){
   S.ranks = buildRanks();
-  renderControls(); renderRooms(); renderMap(); renderBoard();
+  S.cutCache = {};
+  renderControls(); renderRooms(); renderMap(); renderBoard(); renderCards(); applyView();
   $('sleeperLink').href = 'https://sleeper.com/leagues/' + S.league.league_id + '/team';
   if(S.selected){ if(rosterIds().includes(S.selected) || S.ranks[S.selected]) openDrawer(S.selected); else closeDrawer(); }
 }
@@ -780,7 +919,7 @@ async function connect(){
     const pick = leagues.find(l => l.league_id === S.settings.leagueId) || leagues[0];
     $('leagueSel').value = pick.league_id;
     await loadLeague(pick.league_id);
-    $('welcome').hidden = true; ['app','ctrlBar','optBar','foot','settingsBtn'].forEach(id => $(id).hidden = false);
+    $('welcome').hidden = true; ['app','ctrlBar','optBar','foot','settingsBtn','viewTabs'].forEach(id => $(id).hidden = false);
     $('syncBtn').disabled = false; armTimer();
   }catch(err){ setStatus(err.message, true); }
   finally{ S.busy = false; }
@@ -874,13 +1013,18 @@ $('rooms').addEventListener('change', e => { const k = e.target.dataset && e.tar
 document.addEventListener('click', e => {
   if(e.target.id === 'drawerClose') return closeDrawer();
   if(e.target.id === 'settingsBtn'){ document.body.classList.toggle('show-settings'); return; }
-  const c = e.target.closest && e.target.closest('.card[data-id], .dot[data-id], .slot[data-id], .bchip[data-id]');
+  const vt = e.target.closest && e.target.closest('#viewTabs button[data-view]'); if(vt){ setView(vt.dataset.view); return; }
+  const sk = e.target.closest && e.target.closest('.seg button[data-kind]'); if(sk){ S.settings.cardsKind = sk.dataset.kind; saveSettings(); renderCards(); return; }
+  const c = e.target.closest && e.target.closest('.card[data-id], .dot[data-id], .slot[data-id], .bchip[data-id], .pcard[data-id]');
   if(c) openDrawer(c.dataset.id);
 });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeDrawer(); });
 const tip = $('tip');
 document.addEventListener('mouseover', e => { const t = e.target.closest && e.target.closest('[data-tip]'); if(!t){ tip.style.display = 'none'; return; } tip.textContent = t.getAttribute('data-tip'); tip.style.display = 'block'; });
 document.addEventListener('mousemove', e => { if(tip.style.display !== 'block') return; const x = Math.min(window.innerWidth - tip.offsetWidth - 8, e.clientX + 12); tip.style.left = x + 'px'; tip.style.top = (e.clientY + 14) + 'px'; });
+if(location.hash === '#cards' || location.hash === '#depth') S.settings.view = location.hash.slice(1);
+window.addEventListener('hashchange', () => { if(location.hash === '#cards' || location.hash === '#depth'){ S.settings.view = location.hash.slice(1); saveSettings(); applyView(); } });
+applyView();
 renderControls();
 if(S.settings.username) connect();
 </script>
